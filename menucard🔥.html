@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yummy Hot & Sweet Foods</title>
+
+    <style>
+        body {
+            text-align: center;
+            font-family: "Comic Sans MS", sans-serif;
+            background: linear-gradient(90deg,rgb(234, 147, 61), rgb(240, 237, 41), rgb(218, 121, 41));
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Navigation */
+        nav {
+            margin-bottom: 20px;
+        }
+
+        nav a {
+            color: black;
+            text-decoration: none;
+            margin: 0 8px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: rgb(230, 129, 213);
+        }
+
+        /* Restaurant name */
+        h1 {
+            margin: 20px 0;
+        }
+
+        /* Main headings */
+        h2 {
+            background: linear-gradient(45deg, rgb(232, 150, 95), rgb(215, 169, 30), rgb(202, 102, 44));
+            color: white;
+            padding: 15px;
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgb(227, 223, 34);
+            box-sizing: border-box;
+        }
+
+        /* Items and desserts side by side */
+        .menu-container {
+            display: flex;
+            justify-content:space-between;
+            align-items: flex-start;
+            gap: 40px;
+            width: 100%;
+            margin: 30px 0;
+            box-sizing: border-box;
+        }
+
+        /* Food items section */
+        .menu,
+        .desserts {
+            width: 50%;
+            text-align: left;
+            font-family: Cambria, Cochin, Georgia, Times, serif;
+            color: darkred;
+            margin: 0;
+        }
+
+        /* Section headings */
+        .menu-heading,
+        .desserts-heading {
+            display: grid;
+            grid-template-columns: 70% 30%;
+            padding: 0 20px;
+            border-bottom: 2px solid darkred;
+        }
+
+        .menu-heading h3,
+        .desserts-heading h3 {
+            margin: 10px 0;
+        }
+
+        /* Items and costs */
+        .menu-list,
+        .desserts-list {
+            display: grid;
+            grid-template-columns: 70% 30%;
+            padding: 0 20px;
+        }
+
+        .ITEMS,
+        .COST,
+        .dese,
+        .dese-cost {
+            text-align: left;
+        }
+
+        .ITEMS p,
+        .COST p,
+        .dese p,
+        .dese-cost p {
+            margin: 15px 0;
+            padding: 5px 0;
+            font-size: 17px;
+        }
+
+        /* Cost columns */
+        .COST,
+        .dese-cost {
+            padding-left: 10px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 700px) {
+            body {
+                padding: 10px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px;
+            }
+
+            h2 {
+                width: 95%;
+                font-size: 18px;
+            }
+
+            .menu-container {
+                flex-direction: column;
+                width: 100%;
+                gap: 30px;
+            }
+
+            .menu,
+            .desserts {
+                width: 100%;
+            }
+
+            .menu-heading,
+            .desserts-heading,
+            .menu-list,
+            .desserts-list {
+                grid-template-columns: 70% 30%;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .ITEMS p,
+            .COST p,
+            .dese p,
+            .dese-cost p {
+                font-size: 14px;
+            }
+        }
+        .menu-logo{
+            display: block;
+            width: 300px;
+            height: 170px;
+            object-fit: contain;
+            margin:0 auto 15px;
+        }
+        .order{
+            background-color: rgb(255, 145, 81);
+            color: rgb(203, 11, 11);
+            font-size: 32px;
+            
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="#">HOME</a>
+        <a href="#burgers">BURGERS</a>
+        <a href="#fries">FRIES</a>
+        <a href="#grills">GRILLS</a>
+        <a href="#noodles">NOODLES</a>
+        <a href="#desserts">DESSERTS</a>
+    </nav>
+
+    <h1>
+        <span style="color: yellow;">YUMMY</span>
+        <span style="color: red;">🔥 HOT &amp; SWEET</span>
+        <span style="color: yellow;">FOODS</span>
+    </h1>
+
+    <h2>MENU CARD</h2>
+
+    <h2>Welcome to Yummy (hot &amp; sweet) Foods</h2>
+
+    <!-- Items and desserts side by side -->
+    <div class="menu-container">
+
+        <!-- FOOD ITEMS -->
+        <div class="menu" id="burgers">
+
+            <div class="menu-heading">
+                <img src="items.jpeg" alt="fast food icon" class="menu-logo">
+                <h3>ITEMS</h3>
+                <h3>COSTS</h3>
+            </div>
+
+            <div class="menu-list">
+
+                <div class="ITEMS">
+                    <p>CHEESE BURGER</p>
+                    <p>VEG NOODLES</p>
+                    <p>FRIES</p>
+                    <p>VEG PIZZA</p>
+                    <p>VEG SANDWICH</p>
+                    <p>NONVEG PIZZA</p>
+                    <p>NONVEG NOODLES</p>
+                    <p>NONVEG SANDWICH</p>
+                </div>
+
+                <div class="COST">
+                    <p>₹180</p>
+                    <p>₹80</p>
+                    <p>₹40</p>
+                    <p>₹170</p>
+                    <p>₹70</p>
+                    <p>₹230</p>
+                    <p>₹150</p>
+                    <p>₹120</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- DESSERTS -->
+        <div class="desserts" id="desserts">
+
+            <div class="desserts-heading">
+                <img src="dese.jpeg" alt="desserts logo" class="menu-logo">
+                <h3>DESSERTS</h3>
+                <h3>COSTS</h3>
+            </div>
+
+            <div class="desserts-list">
+
+                <div class="dese">
+                    <p>CHOCOLATE CAKE</p>
+                    <p>BROWNIE</p>
+                    <p>BISCOFF CAKE</p>
+                    <p>CHOCOLATE LAVA</p>
+                    <p>NUTS CAKE</p>
+                    <p>CUP CHOCOLATE</p>
+                    <p>RED VELVET</p>
+                    <p>BLACK CURRANT CAKE</p>
+                    <p>BLUEBERRY CUPCAKE</p>
+                </div>
+
+                <div class="dese-cost">
+                    <p>₹80</p>
+                    <p>₹180</p>
+                    <p>₹200</p>
+                    <p>₹130</p>
+                    <p>₹90</p>
+                    <p>₹50</p>
+                    <p>₹250</p>
+                    <p>₹220</p>
+                    <p>₹195</p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div>
+        <p>Food is the happy thing , which can  only  change  your mood . </p>
+        <p>😋ENJOY YOUR FOOD😋</p>
+    </div>
+    <div>
+        <h2>To order your favourite food in online </h2>
+        <a href="order.html" class="order">Clickme to order </a>
+    </div>
+</body>
+</html>

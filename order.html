@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YUMMY - Online Food Order</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-size: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #fff8ef;
+            color: #252550;
+        }
+
+        header {
+            background: linear-gradient(135deg, #f61111, #dc7d10);
+            color: rgb(213, 184, 22);
+            text-align: center;
+            padding: 30px 15px;
+        }
+
+        header h1 {
+            font-size: 45px;
+            margin: 5px;
+        }
+
+        header h2 {
+            font-size: 32px;
+            margin: 15px 0;
+        }
+
+        header p {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        main {
+            width: 100%;
+            padding: 25px 15px;
+        }
+
+        main h2 {
+            text-align: center;
+            color: rgb(213, 2, 2);
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        .food-list {
+            width: 100%;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .food-item {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto auto;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+            margin: 15px 0;
+            padding: 20px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px #dddddd;
+            font-size: 22px;
+        }
+
+        .food-name {
+            font-size: 23px;
+            font-weight: bold;
+            color: #da4a1a;
+            overflow-wrap: anywhere;
+        }
+
+        .food-item label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .food-item input[type="checkbox"] {
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+            accent-color: #174bd6;
+        }
+
+        .food-item input[type="number"] {
+            width: 80px;
+            height: 42px;
+            padding: 5px;
+            font-size: 18px;
+            text-align: center;
+            border: 1px solid #bbbbbb;
+            border-radius: 6px;
+        }
+
+        .food-item input[type="number"]:focus {
+            outline: 2px solid #dc190f;
+        }
+
+        .order-button {
+            display: block;
+            margin: 30px auto;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            background-color: #dfce0d;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .order-button:hover {
+            background-color: #ec9a1f;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 22px 10px;
+            }
+
+            header h1 {
+                font-size: 34px;
+            }
+
+            header h2 {
+                font-size: 22px;
+            }
+
+            header p {
+                font-size: 15px;
+            }
+
+            main {
+                padding: 20px 10px;
+            }
+
+            main h2 {
+                font-size: 26px;
+            }
+
+            .food-item {
+                grid-template-columns: minmax(0, 1fr) auto;
+                gap: 12px;
+                padding: 15px;
+            }
+
+            .food-name {
+                font-size: 17px;
+            }
+
+            .food-item label {
+                font-size: 15px;
+            }
+
+            .food-item input[type="checkbox"] {
+                width: 20px;
+                height: 20px;
+                font-size: 18px;
+            }
+
+            .food-item input[type="number"] {
+                width: 65px;
+                height: 36px;
+                font-size: 18px;
+            }
+
+            .order-button {
+                width: 90%;
+            }
+        }
+        .select-btn{
+            background-color: #174bd6;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size:16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .select-btn:hover {
+            background-color: #101b86;
+        }
+        .select-btn.selected {
+            background-color: #198754;
+        }
+        .order-button{
+            display: inline-block;
+            background-color: #174bd6;
+            color: white;
+            padding: 15px 30px;
+            font-size: 22px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>🔥 YUMMY 🔥</h1>
+        <h2>HOT & SWEET FOODS</h2>
+        <p>Order your favourite food online!</p>
+    </header>
+
+    <main>
+        <h2>Choose Your Food 🍔</h2>
+        
+
+        <div class="food-list">
+
+            <div class="food-item">
+                <span class="food-name">CHEESE BURGER - ₹180/-</span>
+                <button type="button" class="select-btn" onclick="selectFood(this)">
+                    select 
+                </button>
+                <input type="number" name="quantity" min="1" value="1" aria-label="Cheese Burger quantity">
+            </div>
+
+            <div class="food-item">
+                <span class="food-name">VEG NOODLES - ₹80/-</span>
+                <button type="button" class="select-btn" onclick="selectFood(this)">
+                    select 
+                </button>
+                <input type="number" name="quantity" min="1" value="1" aria-label="Veg Noodles quantity">
+            </div>
+
+            <div class="food-item">
+                <span class="food-name">FRIES - ₹40/-</span>
+                <button type="button" class="select-btn" onclick="selectFood(this)">
+                    select 
+                </button>
+                <input type="number" name="quantity" min="1" value="1" aria-label="Fries quantity">
+            </div>
+
+            <div class="food-item">
+                <span class="food-name">VEG PIZZA - ₹170/-</span>
+                <button type="button" class="select-btn" onclick="selectFood(this)">
+                    select 
+                </button>
+                <input type="number" name="quantity" min="1" value="1" aria-label="Veg Pizza quantity">
+            </div>
+
+            <div class="food-item">
+                <span class="food-name">VEG SANDWICH - ₹70/-</span>
+                <button type="button" class="select-btn" onclick="selectFood(this)">
+                    select 
+                </button>
+                <input type="number" name="quantity" min="1" value="1" aria-label="Veg Sandwich quantity">
+            </div>
+
+            <div class="food-item">
+                <span class="food-name">NON VEG PIZZA - ₹230/-</span>
+                <button type="button" class="select-btn" onclick="selectFood(this)">
+                    select 
+                </button>
+                <input type="number" name="quantity" min="1" value="1" aria-label="Non Veg Pizza quantity">
+            </div>
+
+            <div class="food-item">
+                <span class="food-name">NON VEG NOODLES - ₹150/-</span>
+                <button type="button" class="select-btn" onclick="selectFood(this)">
+                    select 
+                </button>
+                <input type="number" name="quantity" min="1" value="1" aria-label="Non Veg Noodles quantity">
+            </div>
+
+            <div class="food-item">
+                <span class="food-name">NON VEG SANDWICH - ₹120/-</span>
+                <button type="button" class="select-btn" onclick="selectFood(this)">
+                    select 
+                </button>
+                <input type="number" name="quantity" min="1" value="1" aria-label="Non Veg Sandwich quantity">
+            </div>
+
+            <div class="food-item">
+                <span class="food-name">CHOCOLATE CAKE - ₹80/-</span>
+                <button type="button" class="select-btn" onclick="selectFood(this)">
+                    select 
+                </button>
+                <input type="number" name="quantity" min="1" value="1" aria-label="Chocolate Cake quantity">
+            </div>
+
+            <div class="food-item">
+                <span class="food-name">BROWNIE - ₹180/-</span>
+                <button type="button" class="select-btn" onclick="selectFood(this)">
+                    select 
+                </button>
+                <input type="number" name="quantity" min="1" value="1" aria-label="Brownie quantity">
+            </div>
+
+            <div class="food-item">
+                <span class="food-name">BISCOFF CAKE - ₹200/-</span>
+                <button type="button" class="select-btn" onclick="selectFood(this)">
+                    select 
+                </button>
+                <input type="number" name="quantity" min="1" value="1" aria-label="Biscoff Cake quantity">
+            </div>
+
+            <div class="food-item">
+                <span class="food-name">CHOCOLATE LAVA CAKE - ₹130/-</span>
+                <button type="button" class="select-btn" onclick="selectFood(this)">
+                    select 
+                </button>
+                <input type="number" name="quantity" min="1" value="1" aria-label="Chocolate Lava Cake quantity">
+            </div>
+
+            <div class="food-item">
+                <span class="food-name">NUTS CAKE - ₹90/-</span>
+                <button type="button" class="select-btn" onclick="selectFood(this)">
+                    select 
+                </button>
+                <input type="number" name="quantity" min="1" value="1" aria-label="Nuts Cake quantity">
+            </div>
+
+            <div class="food-item">
+                <span class="food-name">CUP CHOCOLATE - ₹50/-</span>
+                <button type="button" class="select-btn" onclick="selectFood(this)">
+                    select 
+                </button>
+                <input type="number" name="quantity" min="1" value="1" aria-label="Cup Chocolate quantity">
+            </div>
+
+            <div class="food-item">
+                <span class="food-name">RED VELVET - ₹250/-</span>
+                <button type="button" class="select-btn" onclick="selectFood(this)">
+                    select 
+                </button>
+                <input type="number" name="quantity" min="1" value="1" aria-label="Red Velvet quantity">
+            </div>
+
+            <div class="food-item">
+                <span class="food-name">BLACK CURRANT CAKE - ₹220/-</span>
+                <button type="button" class="select-btn" onclick="selectFood(this)">
+                    select 
+                </button>
+                <input type="number" name="quantity" min="1" value="1" aria-label="Black Currant Cake quantity">
+            </div>
+
+            <div class="food-item">
+                <span class="food-name">BLUEBERRY CUPCAKE - ₹195/-</span>
+                <button type="button" class="select-btn" onclick="selectFood(this)">
+                    select 
+                </button>
+                <input type="number" name="quantity" min="1" value="1" aria-label="Blueberry Cupcake quantity">
+            </div>
+
+        </div>
+        <a href="thank.html" class="order-button">Order now</a>
+
+    </main>
+    <script>
+        function selectFood(button) {
+            button.classList.toggle("selected");
+            if(button.classList.contains("selected")) {
+                button.textContent="selected";
+            }else{
+                button.textContent="select";
+            }
+        }
+    </script>
+    
+
+</body>
+</html>
